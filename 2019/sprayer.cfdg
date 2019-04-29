@@ -1,0 +1,12 @@
+CF::Impure = 1
+startshape start(0)
+
+shape start (number life){
+    liner(12-life)[]
+    start(life+1)[x 2 r 10 s .975]
+}
+shape liner(number life) {
+    CIRCLE[]
+    if(life < 15)
+        liner(life+1)[s .9 x 1.5 y -1.5 r 4] 
+}

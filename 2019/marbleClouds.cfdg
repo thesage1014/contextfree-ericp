@@ -1,0 +1,16 @@
+startshape start
+
+shape start {
+    loop i=40 [x .05 y .1 h 2 b .05]
+        blorb[x rand(-.5,.5)]
+}
+
+shape blorb {
+    circ[h rand(40) sat .5 b .1]
+    blorb[x rand(-2,2) y .1 z -.01 s .9]
+}
+shape circ {
+    CIRCLE[b .3 sat .07 h 200]
+    CIRCLE[x .07 y .07 s .9 .85 r -45 b .4 sat .07 h 200]
+    CIRCLE[x .30 y .30 s .1 .05 r -45 b .8 sat .07 h 200]
+}

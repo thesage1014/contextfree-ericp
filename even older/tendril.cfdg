@@ -1,0 +1,21 @@
+startshape START
+
+
+
+rule START {
+
+CIRCLE{}
+
+START{x .1 r .5 s .99}
+
+}
+
+rule START .01 {
+
+CIRCLE{}
+
+START{x .1 r .5 s .99 flip 180 b .1}
+
+START{x .1 r .5 s .99 flip 90 b .1}
+
+}

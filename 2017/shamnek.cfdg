@@ -1,0 +1,35 @@
+CF::Size = [s 8 8 x -1 y -2]
+CF::Impure = 1
+//CF::Time = [time 0 1]
+
+startshape shamank[]
+shape shamank {
+	hex [sat 1 b .5]
+	SQUARE[s .1 1]
+	hex [sat 1 b .5 a -frame()] //time 0 .5]
+	SQUARE[s .1 1 a -frame()] // time 0 .5]
+	shamank[s .65 r -20 y 1 x -1.2]// time 1 1.5]
+	shamank[s .65 r 20 y 1 x 1.2 flip (frame()*360) ]//time .5 1]
+}
+
+shape HEX {
+	//TRIANGLE[r 30 s 5 z -1000000000]
+	//TRIANGLE[r 30 s 4.8 z -100000000 b 1]
+	loop i=1 [r (360/3)] {
+		hexral(0)[]
+		hexral(0)[r 60 b .5 ]
+	}
+}
+
+shape hexral (number age){
+	hex[b .8 sat .2 h 190]
+	hex[s .6 b 1]
+	if(age <5) {
+		hexral(age+1)[s .8 x .055 y .865 z -1 r 60 a -.3]
+	}
+}
+
+shape hex {
+	loop 3 [r (360/3)]
+	SQUARE[s .575 1]
+}

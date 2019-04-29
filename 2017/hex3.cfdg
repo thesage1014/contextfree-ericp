@@ -1,0 +1,53 @@
+import grad.cfdg
+CF::Impure = 1
+CF::MinimumSize = .6
+startshape start
+
+shape start {
+	grad(150)[s 8 x 1 y -.4 z -infinity() r 180]
+	loop 10 [r 70 s .7 x 2 y -.7] {
+		flystart[y -2.3 a -.2]
+	}
+}
+
+shape flystart {
+	fly[y -1 ]
+	hex[y -1 ]
+}
+
+shape fly {
+	//hex[z -100]
+	transform[s .65 r -15 y .9 x -1.2 h -10] {
+		//HEX[s .7]
+		hex[]
+		fly[]
+	}
+	transform[s .65 r 15 y .9 x 1.2 b .1] {
+		//HEX[s .7 flip 90]
+		hex[]
+		fly[]
+	}
+}
+
+
+shape HEX {
+	//TRIANGLE[r 30 s 5 z -1000000000]
+	//TRIANGLE[r 30 s 4.8 z -100000000 b 1]
+	loop i=1 [r (360/3)] {
+		hexral(0)[]
+		hexral(0)[r 60 b .5 ]
+	}
+}
+
+shape hexral (number age){
+	hex[b .8 sat .2 h 190]
+	hex[s .6 b 1]
+	if(age <5) {
+		hexral(age+1)[s .8 x .055 y .865 z -1 r 60 a -.3]
+	}
+}
+
+shape hex {
+	loop 3 [r (360/3)]
+	grad(100)[s .575 1]
+}

@@ -1,0 +1,29 @@
+CF::Background=[b - 1]
+CF::Impure=1
+startshape starter
+
+shape starter {
+	enerball[r 90 s .8 1]
+//	enerball[x -2 y 4 r -90 s .8 1 hue 180]
+}
+
+shape enerball {
+	loop i=200 [r 3.6 hue 3.6]
+		 trunk((i-100)*-.4)[]
+} 
+
+shape trunk(number roff) 
+rule {
+	CIRCLE[a -.99 sat 1 b 1]
+	CIRCLE[x -.5 a -.994 sat 1 b .8 hue 180]
+	trunk(=) [s .99 y .1 r (1+roff)]
+}
+rule {
+	CIRCLE[a -.99 sat 1 b 1]
+	CIRCLE[x -.5 a -.996 sat 1 b .8 hue 180]
+	trunk(=) [s .99 y .1 r (-1+roff)]
+}
+rule .005 {
+	trunk(roff - 10) [s .99 y .1 r -10]
+	trunk(roff + 10) [s .99 y .1 r 10]
+}

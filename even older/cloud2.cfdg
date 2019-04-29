@@ -1,0 +1,58 @@
+CF::Background=[b -.15 sat .5 hue 190]
+//CF::Symmetry = [skew 30 0], [[skew 30 0 r 120]], [[skew 30 0 r 240]]
+//CF::Symmetry = CF::Dihedral, 3.5, 30
+//CF::Symmetry = CF::Cyclic, 10, 4, 4
+CF::MinimumSize=3
+startshape start// planet[a -.9 b 1]
+
+shape start {
+	loop 4 [h 6 r 3] ace[s 1 .5 b 1 sat -1] //sat .3 h 70 hue -70]
+}
+
+shape ace
+rule {
+	planet[s 1.5 2 sat -1 a -rand(.9, 1)]
+	ace[ s rand(1) a -(rand()+.4) ]
+	ace[x rand(1,-0.5) y rand(.5,-0.5 ) s rand(.7, 1) b 1 ]
+}
+gS = 4 //gap size
+rule .2 {
+	ace[x rand(gS,-gS) y rand(gS,-gS )]
+}
+
+
+//PLANET
+shape planet
+rule {
+	loop 5 [s .9] CIRCLE[ b -.05 sat .1 h 27]
+	go[r rand(360)]
+	go[r rand(360)]
+}
+
+shape go
+rule {
+	oc[r rand(-90, 90)]
+	go[ s rand(.8, .85) x -.05 y rand(-.2,.2)]
+}
+rule .1{
+	go[]
+	go[[x .5 r rand(-50,50) x -.5]]
+}
+
+shape oc
+rule {
+	TRIANGLE[ x .35 s .7 sat .1 h 50 r rand(360)]
+}
+rule {
+	SQUARE[ x .35 s .7 sat .1 h 50  r rand(360)]
+}
+rule {
+	CIRCLE[ x .35 s .7 sat .1 h 50  r rand(360)]
+}
+rule 2 {
+	oc[s .5 x rand(-1,1) y rand(-1,1)]
+	oc[s .5 x rand(-1,1) y rand(-1,1)] 
+}
+
+// Minimum size hack
+//loop 2 [s 100] CIRCLE[s .01]

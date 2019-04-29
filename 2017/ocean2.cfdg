@@ -1,0 +1,40 @@
+CF::Impure = 1
+CF::Background = [b -.3]
+CF::MinimumSize = 2
+startshape start
+
+shape start {
+	womp = 0
+	loop 8 [x 1 y .5] {
+			SQUARE[x -.1 y .4 z -10 skew 0 26 b .8 sat .35 h 37]
+			SQUARE[s .9  x -.1 y .4 z -10 skew 0 26 b .9 sat .35 h 37]
+		}
+	loop i=20 [y -.3 x 1] {
+		SQUARE[x -.1 z 1 skew 1 -16 b .8 sat .35 h 37]
+		SQUARE[x -.1 s .9 z 1 skew 0 -16 b .9 sat .35 h 37]
+		womp = (rand(.4,1) - .005)
+		
+		loop j=70 [y .05 x .1 z -.001] {
+			slice(womp+(j*.001))[r -8  b .9 sat .2 h -170]
+			//slice(.6)[x 1 y -.5 r -8  b .9 sat .2 h -170]
+			//CIRCLE[s 1.8 x .7 y .7 z -.1  r -8  b .7 a -.9]
+			if(j == 69) {
+				SQUARE[x 1 y .55 z -100 skew 1 -16 b .8 sat .35 h 37]
+				SQUARE[x 1 y .55 s .9 z -100 skew 0 -16 b .9 sat .35 h 37]
+			}
+		}
+		if(i == 19) {
+			loop 8 [x 1 y .5] {
+				SQUARE[x .9 y .1 z 1 skew 0 26 b .8 sat .35 h 37]
+				SQUARE[s .9  x .9 y .1 z 1 skew 0 26 b .9 sat .35 h 37]
+			}
+		}
+	}
+	
+}
+
+shape slice (number big) {
+	TRIANGLE[s .5 2 x .05 r -90 b 1 sat 0 z -.1]
+	TRIANGLE[s .5 2 r -90]
+	slice(big)[y .3 x -.05 r rand(-10) s rand(.85*big, 1*big) b .1 sat -.1]
+}

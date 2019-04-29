@@ -1,0 +1,14 @@
+CF::Background=[b -1]
+startshape start
+
+shape start {
+	abe[]
+}
+
+shape abe
+rule {
+	CIRCLE[]
+}
+rule {
+	
+}

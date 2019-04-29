@@ -1,0 +1,19 @@
+startshape start
+CF::Background=[b -1]
+
+shape start {
+	br[h 180]
+	br[ flip 180 ]
+}
+
+shape br
+rule {
+	CIRCLE[x -1 a -.9 b 1 sat .5]
+	CIRCLE[x 1 a -.9 b 1 sat .5]
+	br[ x 2 r rand(40) s .7 sat .05 h 190]
+	br[ x -2 r -rand(40) s .7 sat .05 160]
+}
+rule 0.15 {
+	br[]
+	br[r 180]
+}

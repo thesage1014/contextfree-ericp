@@ -1,0 +1,44 @@
+import grad.cfdg
+CF::Impure = 1
+startshape start
+
+shape start {
+	grad(150)[s 5 z -infinity()]
+	fly[]
+	
+}
+
+shape fly {
+	hex[z -100]
+	transform[s .5 r -15 y .9 x -1.2] {
+		HEX[s .5]
+		fly[]
+	}
+	transform[s .5 r 15 y .9 x 1.2] {
+		HEX[s .5 flip 90]
+		fly[]
+	}
+}
+
+
+shape HEX {
+	//TRIANGLE[r 30 s 5 z -1000000000]
+	//TRIANGLE[r 30 s 4.8 z -100000000 b 1]
+	loop i=1 [r (360/3)] {
+		hexral(0)[]
+		hexral(0)[r 60 b .5 ]
+	}
+}
+
+shape hexral (number age){
+	hex[b .8 sat .2 h 190]
+	hex[s .6 b 1]
+	if(age <5) {
+		hexral(age+1)[s .8 x .055 y .865 z -1 r 60 a -.3]
+	}
+}
+
+shape hex {
+	loop 3 [r (360/3)]
+	grad(100)[s .575 1]
+}

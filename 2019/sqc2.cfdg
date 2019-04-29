@@ -1,0 +1,68 @@
+CF::Impure = 1
+CF::Background = [b -.01 sat .01 h 40]
+startshape start
+shape start {
+    //tongue(5)[r 140 y .25 x .2  b 1 sat .15 h 10]
+    bixmuth[r -38]
+}
+shape tongue(number life) {
+    curlsquare[s .5 1]
+    tongue(life+1)[y 1 s .9 r (-3*life)]
+    if(life == 10)
+        tongue(life+1)[flip 90 s .8]
+}
+shape bixmuth {
+    curlcurl[]
+    tongue(5)[s .4 y .15 x .36 r 175 b 1 sat .15 h 10]
+    bixmuth[[x 6.1 s .75 r 90]]
+}
+
+shape curlcurl {
+    loop i=2 [x 2 z -1000] {
+        curve2(0)[[r (180*i+180) x -1.04]]
+        //cloud(1)[s .3 b 1 a -.95 z -1000 ]
+    }
+}
+shape curlsquare{
+    transform[s .1 x -.375 y .5] {
+        loop i=4 [x 2.5 ] {
+            curve1(0)[[r (180*i+180) y -.5]]
+        }
+    }
+}
+shape curve1(number life) 
+rule {
+    SQUARE[]
+    if(life < 10) {
+        curve1(life+1)[y .5 s .99]
+    } else {
+        curve1(0)[y .1 x .1 z -.00001 s .8 r 90 b -.0]
+    }
+}
+rule .00000001 {
+    curve1(life)[]
+    curve1(-10)[r 90]
+}
+
+shape curve2(number life)
+rule {
+    curlsquare[sat .4 h 180 b (life/6+.6)]
+    
+    if(life < 2) {
+        curve2(life+1)[y 1 s .99]
+        SQUARE[s .15 1 r -.4 y .65 x -.6  b .99 sat .15 h 10]    
+    } else {
+        curve2(0)[y .575 x -.5 z -.00001 s .8 r 90]
+    }
+}
+
+shape cloud(number span) {
+    loop i=100 [x rand(-span,span) y rand(-span,span)] {
+        tuft(2)[]   
+    }
+}
+shape tuft(number span) {
+    loop 10 [] {
+        SQUARE[x rand(-span,span) y rand(-span,span)]
+    }
+}

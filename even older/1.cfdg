@@ -1,0 +1,45 @@
+startshape start
+
+rule start {
+	go[b .5 sat 1 hue 0] go[b .5 sat 1 hue 90] go[b .5 sat 1 hue 180] go[b .5 sat 1 hue 270]
+	do[]
+ }
+
+rule go {
+	SQ{}
+	go[x 1 a -.1]
+}
+rule go {
+	CI{}
+	go[y -1]
+}
+rule go {
+	TR{ y -.15}
+	go[x -1 a -.1]
+}
+rule go {
+	SQ{ s .5 r 45}
+	go[y 1]
+}
+rule go .05 {}
+
+rule SQ {
+	SQUARE{}
+	SQ[s .8]
+}
+rule CI{
+	CIRCLE{}
+	CI[s .8]
+}
+rule TR {
+	TRIANGLE{}
+	TR[s .8]
+}
+
+
+/////
+
+
+rule do{
+	
+}

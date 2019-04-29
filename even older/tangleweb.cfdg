@@ -1,0 +1,19 @@
+startshape start
+
+shape start {
+	loop 10 [r 36 h 36] fgs[x -25]
+}
+
+shape fgs
+rule {
+	CIRCLE[s 4 rand( .5, 2) r 10 b .6 sat .2 h rand(20, 70)]
+	CIRCLE[z 1 s 5 rand( 1, 2.5) r 10 b .6 sat .2 h 40 a -.5]
+	fgs[x 1.5 s .95 r 5]
+}
+rule .07 {
+	fgs[]
+	fgs[flip 180 h rand(-30,30)]
+}
+rule .01 {
+	start[s .5 sat .5]
+}

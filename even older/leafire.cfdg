@@ -1,0 +1,23 @@
+startshape start
+CF::Background=[b -1]
+
+shape start {
+	block[r -40 h 18]
+}
+
+shape block
+rule {
+	TRIANGLE[x 1 a -.95 sat 1 b 1 h 23]
+	CIRCLE[y 1 s 1 2 a -.95 sat 1 b 1]
+	CIRCLE[y -1 s 1 2 a -.95 sat 1 b .5 h 45]
+	CIRCLE[x -1 a -.9 sat 1 b .5 h -45]
+	block[x 1.5 s .5 r 20 h -4]
+	block[y 1 s .5 r 20 h 4]
+	block[x -1 y -1 s .75 r 20 h 4]
+}
+rule 0 {
+	block[r -10]
+}
+rule .5 {
+	block[flip 180]
+}

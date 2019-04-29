@@ -1,0 +1,74 @@
+startshape start
+
+rule start{
+	curve{}
+}
+
+
+rule	curvel{
+	CIRCLE{b .1 a -.9}
+	curvel{y .05 s .997 r -.2}
+}
+rule	curver{
+	CIRCLE{b .1 a -.9}
+	curver{y .05 s .997 r .2}
+}
+rule	curve{
+	CIRCLE{b .1 a -.9}
+	curve{y .05 s .997 }
+}
+
+rule	curvel .0005 {
+	CIRCLE{b .1 a -.9}
+	curvel{y .05 s .997 r -.2}
+	starry{ s 2 z 1000}
+}
+rule	curver .0005 {
+	CIRCLE{b .1 a -.9}
+	curver{y .05 s .997 r .2}
+	starry{s 2 z 1000 }
+}
+rule	curve .0005 {
+	CIRCLE{b .1 a -.9}
+	curve{y .05 s .997 }
+	starry{s 2 z 1000}
+}
+
+rule	curve .002 {
+	curver{}
+	curvel{}
+	curve{}
+//	starry{s 5 z 10}
+}
+rule	curvel .002 {
+	curve{}
+	curvel{}
+	curver{}
+	starry{s 5 z 10}
+}
+rule	curver .002 {
+	curve{}
+	curver{}
+	curvel{}
+	starry{s 5 z 10}
+}
+
+
+rule starry {
+	CIRCLE{}
+	6 * {r 60} petal{ r 20 }
+}
+rule starry {
+	CIRCLE{}
+	6 * {r 60} petal{ r -20 }
+}
+rule petal {
+	CIRCLE{ b -.5 a -.93}
+	petal{y .0175 s .99 r -1 sat .01 b .005 }
+}
+rule petal {
+	CIRCLE{ b -.5 a -.93}
+	petal{y .0175 s .99 r 1 sat .01 b .005 }
+}
+
+

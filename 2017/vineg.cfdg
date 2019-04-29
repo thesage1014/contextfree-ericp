@@ -1,0 +1,11 @@
+import grad.cfdg
+CF::Impure 1
+startshape start
+
+shape start {
+	vine[]
+}
+
+shape vine(number age) {
+	
+}

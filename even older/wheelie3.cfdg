@@ -1,0 +1,24 @@
+CF::Background=[b -1]
+CF::Impure=1
+startshape start2
+
+shape start2 {
+	start[]
+//	start[r 17 hue -20]
+}
+
+shape start {
+	loop 10 [r 36 hue 120]
+		loop 1000 [hue .4 x .0002 y -.0005 z 1 ] set(0)[y 7 r -45 sat 1 a -.98]
+}
+
+steps = 15
+shape set(number type)
+rule {
+	CIRCLE[b 1]
+	if(type-steps) set(type+1)[x 1]
+}
+rule {
+	SQUARE[b 1]
+	if(type-steps) set(type+1)[y 1]
+}

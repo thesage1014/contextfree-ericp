@@ -1,0 +1,40 @@
+import lib_furfire.cfdg
+CF::Background=[b -1]
+CF::Size=[s 60]
+CF::Impure=1
+//CF::Symmetry = [skew 30 0], [[skew 30 0 r 120]], [[skew 30 0 r 240]]
+//CF::Symmetry = CF::Dihedral, 3.5, 30
+//CF::Symmetry = CF::Cyclic, 10, 4, 4
+CF::MinimumSize=3
+startshape start// planet[a -.9 b 1]
+
+shape start {
+	blueSky(0)[s 40 h 120 a -.9]
+	planet[s 29]
+	fur[x -1.5 y -15.5 h 20 a -.7]
+}
+shape blueSky(number age) {
+	SQUARE [s 1 1.008 z -1 b .85 sat 1 hue 190 a -.98]
+	if(age < 170)
+		blueSky(age+1)[s .995 r 170 h .7]
+}
+shape fur {
+	loop 90 [ r 11 x 3] {
+		seed(50)[s .5 1.5 x rand(-5,5) y rand(5,10) ]
+		seed(100)[s .5 1 y 4 h 5]
+		seed(100)[s .5 1 y 2 z -1 h 0]
+		seed(70)[y -4 z -2 h 10]
+	}
+}
+
+// PLANET
+shape planet {
+	CIRCLE[b .5 a -.95 z 1]
+	grad(0)[b .5 sat 1 a -.996]
+//	CIRCLE[s .2 b 0]
+}
+shape grad(number age) {
+	CIRCLE [s .98 1.02 h 0]
+	if(age < 100)
+		grad(age+1)[s .995 r 170 hue 0]
+}

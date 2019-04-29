@@ -1,0 +1,32 @@
+startshape kipper
+
+rule mud {
+	kip[r 10]
+	mud2{r 30 x .4 s .9 sat -.5}
+}
+rule mud2 {
+	kip[r 10]
+	mud{r 30 x .4 s .9 sat .5}
+}
+rule mud2 .2 {
+	mud{r 120 x .4 s .9 sat .5}
+	mud{r 30 x .4 s .9 sat .5}
+}
+
+rule kipper{ kip{r 5} kippers{} }
+rule kippers {
+	kip{a - .7 r 5}
+	kippers{a -.1 s .998}
+}
+
+rule kip {
+	SQUARE{a -.5 s 1 .8  b 1 sat .7 hue -140 z -100000000}
+	SQUARE{a -.5 s 1 .4 y -.2 b 1 sat .7 hue -140 z -100000000}
+	SQUARE{a -.5 s .3 .2 y -.1 b .7 sat .7 hue -140 z -100000000}
+	SQUARE{a -.5 x -.4 s .3 .4  b .9 sat .9 hue 20  r -5 }
+	SQUARE{a -.5 x .43 s .25 .4  b .9 sat .9 hue 20  r -7}
+	SQUARE{a -.5 s .15 .04 x -.4 y .25 b 1 sat .7 hue -140 }
+	SQUARE{a -.5 s .15 .04 x .4 y .25 b 1 sat .7 hue -140 }
+	3 * {r 15} SQUARE[a -.5  r - 15 x .65 s .15 .05  b .9 sat .9 hue 20 ]
+	3 * {r 15} SQUARE[a -.5 r - 13 x -.65 s .15 .05  b .9 sat .9 hue 20 ]
+}

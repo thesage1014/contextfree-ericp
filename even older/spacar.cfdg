@@ -1,0 +1,26 @@
+CF::Background=[b -1]
+//CF::Symmetry = [skew 30 0], [[skew 30 0 r 120]], [[skew 30 0 r 240]]
+//CF::Symmetry = CF::Dihedral, 2, 45
+CF::Symmetry = CF::Cyclic, 10, 4, 4
+CF::MinimumSize=1
+import planet.cfdg
+startshape start
+
+shape start {
+	loop 7 [] galaxy[x rand(-30,30) y rand(-20,20)]
+}
+
+shape galaxy {
+	loop 10 [h 15] ace[sat .3 h rand(360) hue 0 a -1 skew rand(-30, 30) 0]
+}
+
+shape ace
+rule {
+	planet[sat -1 a rand(.01, .005)]
+	ace[ s .3 a -rand() ]
+	ace[x rand(1,-1) y rand(1,-1 ) s rand(.95, .97) b 1 ]
+}
+gS = 3 //gap size
+rule .2 {
+	ace[x rand(gS,-gS) y rand(gS,-gS )]
+}

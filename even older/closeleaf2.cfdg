@@ -1,0 +1,44 @@
+CF::Impure=1
+startshape bushTrunk(0)
+
+shape bushTrunk(number life)
+rule {
+	CIRCLE[sat .7 b .7 hue 60]
+	bushTrunk(life+1)[y .1 s .999 r rand(-1,1) sat rand(-1, 1) hue rand(-1,1)]
+}
+
+rule .004 {
+	bushTrunk(life+1)[z (rand()-1) r 10 s .95 b .1]
+	bushTrunk(life+1)[z rand() r -10 s .9]
+}
+
+rule .1 {
+	CIRCLE[y -.1 a -.9]
+	bushTrunk(life)[]
+}
+rule .005 {
+	if(life - randint(1000) > 600)
+		if(life < 1500)
+			leaf[s (4 + (life*life)*.0000001)]
+	bushTrunk(life)[]
+}
+
+shape leaf {
+	loop 6 [r 60 y .1 x .1 b .2 s .99]
+		CIRCLE[s 10 r 45 sat .9 b .3 hue 50 a -.5]
+}
+
+shape abe
+rule {
+	SQUARE[a -.5 b 0]
+	abe[s .9 r 10 x rand(.5, .9)]
+}
+rule {
+	SQUARE[a -.5 b 0]
+	abe[s .9 r -10 y rand(.5, .9)]
+}
+rule .1{
+	SQUARE[a -.5 b 0]
+	abe[s .9 x rand(.5, .9)]
+	abe[s .9 y rand(.5, .9)]
+}

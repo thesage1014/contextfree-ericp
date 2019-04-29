@@ -1,0 +1,30 @@
+startshape kipprits
+
+rule kipprits{
+	kipprit{r -60 } 
+	kipprit{ r -150 y 5.5 x 1.5 }
+}
+
+rule kipprit{
+	kippit[r 90]
+	kippit{r 90 y 8 r -90}
+}
+
+rule kippit {
+//	100 * {y 5 s .9 1 r 30 } kipper{ h 280 }
+	kipper{ h 280 }
+	kippit{y 1 s .975 1 r 5 h -.5}
+}
+
+rule kipper{  
+	kip{x 4} kippers{x 4 flip 90 sat 1 b .5 h -24}
+//	kipper[ x 5 r -60  s .6 sat 1 b .5 h -180]
+}
+
+rule kippers {
+	kip{a - .75 }
+	kippers{a -.001 r -2 s .99 .9995 x .02 y .2}
+}
+rule kip {
+	CIRCLE{ a -.8 }
+}

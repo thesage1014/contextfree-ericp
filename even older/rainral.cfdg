@@ -1,0 +1,119 @@
+startshape GEU
+
+background{b -1}
+
+
+
+rule GEU {
+
+SQUARE{ sat 1}
+
+GEU{s .9995 x .1 r 1 b .001 hue 1 }
+
+}
+
+rule GEU .01 {
+
+SQUARE{ sat 1}
+
+GEU2{s .9995 x .1 r 1 b .001 hue 181 }
+
+}
+
+rule GEU2 {
+
+SQUARE{ sat 1}
+
+GEU3{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU3 {
+
+SQUARE{ sat 1}
+
+GEU4{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU4 {
+
+SQUARE{ sat 1}
+
+GEU5{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU5 {
+
+SQUARE{ sat 1}
+
+GEU6{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU6 {
+
+SQUARE{ sat 1}
+
+GEU7{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU7 {
+
+SQUARE{ sat 1}
+
+GEU8{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU8 {
+
+SQUARE{ sat 1}
+
+GEU9{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU9 {
+
+SQUARE{ sat 1}
+
+GEU10{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU10 {
+
+SQUARE{ sat 1}
+
+GEU11{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU11 {
+
+SQUARE{ sat 1}
+
+GEU12{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU12 {
+
+SQUARE{ sat 1}
+
+GEU13{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU13 {
+
+SQUARE{ sat 1}
+
+GEU14{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU14 {
+
+SQUARE{ sat 1}
+
+GEU15{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU15 {
+
+SQUARE{ sat 1}
+
+GEU16{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU16 {
+
+SQUARE{ sat 1}
+
+GEU17{s .9995 x .1 r 1 b .001 hue 1 }
+
+}rule GEU17 {
+
+SQUARE{ sat 1}
+
+GEU{s .9995 x .1 r 1 b .001 hue 181 }
+
+}

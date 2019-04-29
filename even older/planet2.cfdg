@@ -1,0 +1,10 @@
+startshape planet
+
+shape planet {
+	CIRCLE[b 1 sat .2 hue 50]
+	grad[b .65 sat .4 hue 120 a -.91]
+}
+shape grad {
+	CIRCLE [s .98 1.02]
+	grad[s .995 r 170 hue -.2 sat -.006]
+}

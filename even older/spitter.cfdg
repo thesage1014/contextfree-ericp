@@ -1,0 +1,30 @@
+CF::Background=[b 1]
+CF::Impure=1
+startshape start
+
+
+shape start {
+	loop 12 [r rand(360) h rand(30)] abe(0)[r 180 x 50]
+}
+
+shape abe (number hits)
+rule {
+	if (mod(hits, 10)==1) SQUARE[s 10 100 h (hits*.1) sat 1 b 1 a -.99]
+//	CIRCLE[h (hits*.1) sat .8 b .8]
+	abe(hits+1)[x .1 s .9985]
+}
+rule .01 {
+	rabe[r 180]
+	abe(hits)[]
+	rabe[r 180 flip 180]
+}
+shape rabe
+rule {
+//	CIRCLE[h 20 sat .5 b .5]
+	rabe[x .1 s .998 r .02]
+}
+rule .001 {
+	rabe[]
+	abe(0)[]
+	rabe[flip 180]
+}

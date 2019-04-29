@@ -1,0 +1,21 @@
+startshape start
+CF::Impure = 1
+
+shape start{
+	loop i=11 [x 1] {
+		loop j=i [y 1 s 1 (i/50+1) r 5]
+			squig(i+1)[]
+	}
+}
+
+shape squig(number i){
+	SQUARE[b .2]
+	SQUARE[s .9 b 1]
+	curlySq(i)[y -.15 s .6]
+}
+
+shape curlySq(number life) {
+        SQUARE[x .555 y -.0158 s .1 1 b .2]
+        if(life > 0)
+			curlySq(life-1)[s .8 x .1 r 90]
+}

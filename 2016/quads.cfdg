@@ -1,0 +1,24 @@
+startshape start
+CF::Background = [sat .5 h 90 b -.5]
+CF::Impure = 1
+//CF::MinimumSize = .5
+
+shape start {
+//	SQUARE[s 2 b 0]
+	quad(1,.47)[]
+}
+
+shape quad(number white, number s1)
+rule {
+//	loop 10 [s .97]
+		SQUARE[s 2 b white]	
+	transform[r (randint(4)*90)] {
+		quad(!white, s1)[s s1 x -.5 y -.5]
+		quad(!white, s1)[s s1 x -.5 y .5]
+		quad(!white, s1)[s s1 x .5  y -.5]
+		quad(!white, s1)[s (s1*.7) x .5  y .5 r 45]
+	}
+}
+rule .1 {
+
+}

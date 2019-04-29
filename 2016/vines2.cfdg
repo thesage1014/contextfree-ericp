@@ -1,0 +1,96 @@
+startshape start
+CF::Background = [b -1]
+CF::MinimumSize = 1
+
+shape start {
+	spire[]
+	start[s .7 y 1 x -6 z -1 b .2 a -.5]
+	//start[s .7 y 1 x 6 z -1 b .2 a -.5]
+}
+
+shape spire {
+	coneAli[y 6.5]
+	centerBall[s 1 .5]
+	cone2Ali[y -12 flip 0]
+}
+shape centerBall {
+	loop 36 [r 10] {
+		//tri[s 1 .5 b .3 sat .5 h 20]
+		dia[b .3 sat .5 h 20]
+	}
+}
+
+triRot = 90
+
+shape coneAli {
+	cone[x -5 r -30]
+}
+shape cone {
+	loop 11 [x 1 r 5.9 b .1] {
+		bushTrunk[x +.5 a -.4]
+	}
+}
+
+shape bushTrunk
+rule {
+	tri[s 1.6 r triRot sat .7 b .3 hue 140]
+	tri[s 1.6 r -triRot sat .7 b .45 hue 120]
+	bushTrunk[y 1 s .9 r rand(-10,10)]
+}
+rule .005 {
+	bushTrunk[x -.9 y -1 z -1 r 15 s .8 h -7]
+	bushTrunk[x .9  y -1 z -1 r -15 s .8 h 7]
+} //end bushTrunk
+
+shape tri
+rule {
+	CIRCLE[s 1 b .5 a -.5]
+	loop 10 [s .99 1.1 y .02 a -.3 ] {
+		TRIANGLE[s 1.1 1.1]
+	}
+}
+rule .3 {
+	loop 10 [s .99 1.1 y .02 a -.3 ]
+		TRIANGLE[s 1.1 1.1]
+	CIRCLE[s .35 1 y .6]
+	bushTrunk[s .2 y 1 h -107]
+} // end tri
+
+shape cone2Ali {
+	cone2[x -5 r -30]
+}
+shape cone2 {
+	loop 11 [x 1 r -5.9 b .1] {
+		bushTrunk2[r 70 x +.5 a -.4]
+	}
+}  //end cone2
+shape bushTrunk2
+rule {
+	tri2[s 1.6 r triRot sat .7 b .2 hue 20]
+	tri2[s 1.6 r -triRot sat .7 b .35 hue 10]
+	bushTrunk2[y 1 s .9 r rand(-10,10)]
+}
+rule .0005 {
+	bushTrunk2[x -.9 y -1 z -1 r 15 s .8 h -7]
+	bushTrunk2[x .9  y -1 z -1 r -15 s .8 h 7]
+} //end bushTrunk2
+
+shape tri2
+rule {
+	CIRCLE[s 1 b .5 a -.5]
+	loop 10 [s .99 1.1 y .02 a -.3 ] {
+		TRIANGLE[s 1.1 1.1]
+	}
+}
+rule .3 {
+	loop 10 [s .99 1.1 y .02 a -.3 ]
+		TRIANGLE[s 1.1 1.1]
+	CIRCLE[s .35 1 y .6]
+	bushTrunk2[s .2 y 1 h 10]
+} // end tri2
+
+
+
+shape dia {
+	tri[r 45]
+}

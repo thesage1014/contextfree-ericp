@@ -1,0 +1,39 @@
+startshape  start2
+background {b 1}
+
+rule start2{
+	100* {s .996} CIRCLE{s 27 hue 90 sat 1 b 1 a -.99}
+	CIRCLE{s 21 b .2 sat .5 hue 180}
+	CIRCLE{s 20}
+//	CIRCLE{s 10 b .15 sat 1 hue 160}
+	100* {s .98 h .25} CIRCLE{s 20 b .15 sat 1 hue 160 a -.95}
+	10* {r 30} start{}
+}
+
+rule start{
+	SQUARE{r 45 s 1 1.5 a -.995 sat 1 hue 180}
+	start{y .1 r 1 s .99 b 1 a 1.5}
+}
+rule start{
+	SQUARE{r 45 a -1 a -.995 sat 1 hue 90}
+	start{y .1 r -3 s .99 b 1 a 1.5}
+}
+rule start 0.01{
+	start{sat .5 }
+	start{flip 90 sat .25 h 10}
+}
+rule start 0.01{
+	start{sat .5}
+	start{r -90 sat .25 h 10}
+}
+rule start 0.01{
+	start{sat .5}
+	start{r 90 sat .25 h 10}
+}
+rule start 0.1{
+	TRIANGLE{s 5 3 a -.8 sat 1 hue 90}
+	start{}
+}
+rule start 0.0008{
+	start{hue -90}
+}

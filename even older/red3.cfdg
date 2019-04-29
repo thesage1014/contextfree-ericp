@@ -1,0 +1,47 @@
+CF::Impure = 1
+CF::Background = [b -1]
+//CF::MinimumSize = .1
+startshape start
+count = 12
+count2 = 0
+intzoop = .005
+intbees = 0
+dotSizeSpread	= 1.5
+dotSizeInit 		= 3
+shape start {
+//	SQUARE[s 10 .05 y -.05 x-.05]
+//	SQUARE[s .05 10 x -.05 y-.05]
+	gosh(0,1)[]
+	
+//	loop 3[x 20]
+//		play(0,1)[r 120]
+
+//	i = 0
+//	loop 10 [x 1.5] {
+//		red(.3 + i*3)[]
+//		i = i+1
+//	}
+}
+
+shape red(number spr) {
+	TRIANGLE[a -.975 x -spr .. spr y -spr .. spr s .5 (dotSizeInit-dotSizeSpread) .. (dotSizeInit+dotSizeSpread) sat .9 b .8 .. 1.2 ]
+	red(spr)[z .000001 y .1 .. 1.5 s .95 r -4] //y (0 .. spr)
+}
+shape play(number life, number bees, number blam) {
+	red(.1 + life*.1)[s .5]
+	if (life < 16)
+		play(life + .05, bees, blam)[x blam s bees r 20 hue -.5]
+}
+
+shape wraith(number life, number zoop, number blam) {
+	play(0,(1-zoop)+(.0013*life), blam)[x (life*2) s (1/(life+.5)) r 90]
+	if(life < count) {
+		wraith(life+1, zoop, blam)[z -1]
+	}
+}
+shape gosh(number life, number blam) {
+	wraith(0,intzoop, blam-1.25+life*.5)[x -25] //90 x (life*20)]
+	if(life < count2) {
+		gosh(life + 1, blam)[r -72]
+	}
+}

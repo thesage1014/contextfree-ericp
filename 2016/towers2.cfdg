@@ -1,0 +1,18 @@
+startshape start
+
+shape start {
+//	TRIANGLE[ y -1]
+//	TRIANGLE[ x 10 y -1  b .5]
+//	TRIANGLE[ x -10 y -1 b .5]
+	loop 7 [ s .9 y -5 r -10 a -.15 sat .2 b .2 h 10]
+	loop 6 [x 10 r -10] {
+		loop i=50 [ ] {
+			ra = rand(20)
+			loop j=50 [] {
+				loc = randint::discrete(i,i,i,i,15,2,ra,ra,ra,ra)
+				transform[r -loc]
+					SQUARE[s (.97+i/100) .5 x loc y (i*.5) r -loc a -.7]
+			}
+		}
+	}
+}

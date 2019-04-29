@@ -1,0 +1,48 @@
+startshape start
+background {b -1}
+
+rule start {
+	fattyline{b .01}
+	smallline{r 180}
+}
+
+rule fattyline{
+	SQUARE{}
+	fattyline{s .985 x 1 r 2 b .001}
+	line{s .96 x 1 r 92 b .001}
+	smallline{s .5 1 x 1 r -100 b .0001}
+}
+rule fattyline{
+	SQUARE{}
+	fattyline{s .985 x 1 b -.01}
+	line{s .96 x 1 r 88 b -.01}
+	smallline{s .5 1 x 1 r -100 hue 180 b .0001}
+}
+
+rule line{
+	SQUARE{}
+	line{s .98 x 1 r 2 b .01}
+}
+rule line{
+	SQUARE{}
+	line{s .98 x 1 r -2 b -.01}
+}
+rule line .05{sattyline{}}
+
+rule sattyline{
+	SQUARE{}
+	sattyline{s .98 x 1 r 2 b .01 sat .01}
+}
+rule sattyline{
+	SQUARE{}
+	sattyline{s .98 x 1 r -2 b .01 sat .01}
+}
+
+rule smallline{
+	SQUARE{}
+	smallline{s .98 x 1 r 5 b .01 sat .01}
+}
+rule smallline{
+	SQUARE{}
+	smallline{s .98 x 1 r 10 b .01 sat .01}
+}

@@ -1,0 +1,35 @@
+CF::Impure = 1
+CF::Background = [ b -1]
+startshape start
+
+curlOnSplit = 5
+
+shape start {
+	weed[r 90]
+	weed[r -90]
+}
+
+shape weed {
+	loop i=10 [x .05 y -.1 r 1] 
+		trunk(i*1+10)[x .1]
+}
+
+shape trunk (number curl)
+rule {
+	spinner(2..20)[]
+	trunk(curl)[y .5 s .97 r (-2..2 + curl) h (0+-5)]
+}
+rule .1 {
+	trunk(curl + 0±curlOnSplit) [s .75]
+	//trunk(curl + 0±curlOnSplit) [r 10]
+}
+
+shape spinner (number twist) 
+rule {
+	CIRCLE[b 1 sat .5 a -.95]
+	spinner(twist)[s .86 .97 r twist]
+}
+rule 5 {
+	CIRCLE[b 1 sat .5 a -.99]
+	spinner(twist)[s .92 .985 r twist]
+}

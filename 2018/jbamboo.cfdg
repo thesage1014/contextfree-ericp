@@ -1,0 +1,104 @@
+import jclouds2.cfdg
+CF::Impure = 1
+CF::Background = [r -8  b -.1 sat .2 h -170]
+CF::Size = [s 100 y -50]
+startshape scene
+
+shape scene {
+	//SQUARE[s 100 y 50 z -100000000000000 b .7]
+	CIRCLE[s 200 60 y -5 h 42 sat 0.3147 b 0.95 z -100000000]
+	wave[s 8 6 x -120 y 32 z -1000000000]
+	loop 10 [b -.05 z -1]
+		grove[x rand(-5,5) z -15]
+	loop 10 [x rand(-25,0) z -2]
+		sky2[s 3 y 100 b .97]
+	loop 200 [x rand(-1,0) z -.75]
+		tuft[s 1 -1 y (95-rand(25)) x 50 r rand(-45,45) z 100]
+	loop 5 [z -40 b .3]
+		sky[s 3 y 70 x rand(-40,10) z 90]
+}
+shape grove {
+	loop 7 [x rand(-25,25) z -2] {
+		startStalk(0,10)[y (rand(10)+10)]
+	}
+}
+shape startStalk (number life, number nodes) {
+		stalk(0,10)[sat -rand(.3) b rand(-.2,.2)]
+		loop 2 []
+			stalk(0,randint(3)+2)[s rand(.3,.4) rand(.12,.05)  x rand(-7,7) y (rand(5)-2.5) sat -rand(.3) b rand(-.2,.2)]
+
+}
+shape stalk (number life, number nodes) {
+	
+	CIRCLE[s 1 .25 b .4 sat .5 h 90]
+	CIRCLE[s .15 .25 x .4 y -.1 r 45 b .99 sat .35 h 80 a -.95]
+	CIRCLE[s 1 .27 b .9 sat .85 h 80 a -.99 z .0001]
+	
+	if(life - randint(200) > 700) {
+		node(nodes-1)[]
+	} else
+		stalk(life+1, nodes)[y .01 r rand(-.01,.01)]
+}
+
+shape node(number nodeNum) {
+	transform [x -.5]
+		loop i=100 [x .01]
+			CIRCLE[s .02 (rand(.3, 1)*(1.25-(abs(i-50)/100))) b .1 sat .5 h 80 a -.5]
+	loop 5 [y -.01 s .99 ]		
+	CIRCLE[s 1.1 .2 y -.1 b .2 sat .5 h 90 z .00001]
+	loop 5 [y -.01 s .99 ]		
+	CIRCLE[s 1.1 .25 y 0 b .5 sat .75 h 90 z .0001]
+	//loop 10 [y .1 ]		
+	CIRCLE[s 1.05 .3 y -.05 b .56 sat .71 h 83 a -.1 z .001]
+	CIRCLE[s 1.1 .27 y .01 b .56 sat .71 h 83 a -.1 z .0001]
+	
+	
+	if(nodeNum)
+		stalk(0, nodeNum)[r rand(-2,2) z 1]
+}
+
+// Leaves
+shape tuft{
+	loop 4 [s -1 1 y 3]
+	bbranch(5)[x -3 r 190 a - .8]
+}
+shape bbranch(number life) {
+	//CIRCLE[s .2 2 y .5  b .6 sat .95 h 65]
+	if(life > 0) {
+		if(rand(3) < 1)
+			quill((5-life)*15)[s .8 1.2 x .6 r rand(35,75)]
+		if(rand(3) < 1)
+			quill((5-life)*15)[s .8 1.2 x -.6 r rand(-35,-75) b .25 sat .1]
+	}
+	if(life > -6)
+		bbranch(life -1)[y 1 r rand(-5,5) s .9 1.01]
+}
+shape quill(number life) {
+	CIRCLE[s 1 1.2 y .1 b .7 sat .75 h 90]
+	if(life < 1)
+		quilltip[s 1 1.1]
+	else
+		quill(life-1)[y -.07 s .98 r rand(-1,1)]
+}
+shape quilltip {
+	CIRCLE[s 1 1.2 y .1 b .7 sat .75 h 90]
+	quilltip[y -.07 s .95 r rand(-3,3)]
+}
+
+// Waves
+shape wave {
+	womp = 0
+	loop i=15 [x 1 y -.2] {
+		womp = (rand(.4,1) - .005)
+		loop j=100 [y .021 x .2 z -.001] {
+			slice(womp+(j*rand(.001)))[r -8  b .9 sat .2 h -170]
+		}
+	}
+	
+}
+
+shape slice (number big) {
+	TRIANGLE[s .5 2 x .05 r -90 b 1 sat 0 z -.1]
+	TRIANGLE[s .5 2 r -90]
+	slice(big)[y .3 x -.05 r rand(-10) s rand(.85*big, 1*big) b .1 sat -.1]
+}

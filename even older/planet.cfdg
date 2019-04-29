@@ -1,0 +1,22 @@
+startshape planet
+
+shape planet
+rule {
+	CIRCLE[b .7 sat .7 h 200]
+	go[r rand(360)]
+	go[r rand(360)]
+}
+
+shape go
+rule {
+	oc[r rand(-10, 10)]
+	go[ s rand(.7, .85) x -.05 y rand(-.2,.2)]
+}
+rule .1{
+	go[]
+	go[[x .5 r rand(-50,50) x -.5]]
+}
+
+shape oc {
+	CIRCLE[ x .35 s .3 b .7 sat .8 h 80 ]
+}

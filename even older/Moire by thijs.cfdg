@@ -1,0 +1,23 @@
+startshape Moire
+ 
+Rn =21
+CF::Size = [s 6 5]
+CF::ColorDepth=16
+CF::Background=[hue 85 sat 0.5 b 1.0]
+ 
+shape Moire{
+ Grid [hue  10 sat 1 b 1.0 z-1]
+ Grid [hue 210 sat 1 b 0.2 r -atan(sqrt(2)/Rn)]
+ Grid [hue 240 sat 1 b 0.1 r  atan(sqrt(2)/Rn)]
+}
+ 
+shape Grid{
+ loop i=-500,500 [] {
+  loop j=-500,500 [] {
+   if (abs(i+j)<=500 && mod(i-j,3)<>0)
+    CIRCLE[x (4*tanh((2*i+j)/250))
+           y (4*tanh(j*sqrt(3)/250))
+           s 0.025
+           b (0.7-sqrt(i^2+j^2)/100)]
+}}}
+ 

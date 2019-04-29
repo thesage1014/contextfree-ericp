@@ -1,0 +1,36 @@
+startshape T
+// FLIGIZ
+include i_pix.cfdg
+
+background{b -1}
+
+shape T {
+	CIRCLE[s 1.155 b .5]
+	10 * {b .015 s .99} CIRCLE[s 1.15 }
+	CIRCLE[b 1]
+	50 * {b .05 s .995} CIRCLE[b .6}
+	60 * {r 6} SQUARE[x .5 s .04 .005]
+	12 * {r 30} hour{}
+	secs{z 1}
+	mins{ z 1}
+	hors{z 1}
+	CIRCLE[s .02 b .9 sat .3 hue 50 z 10]
+	CIRCLE[s .01 b 1 sat .1 hue 50 z 10 x -.002 y .002]
+}
+shape secs {
+	CIRCLE[ s .05 sat 1 b 1]
+	SQUARE[ s .01 .55 y .35 sat 1 b 1]
+}
+shape mins {
+	SQUARE[r -60 s .012 .5 y .35 ]
+}
+shape hors {
+	SQUARE[ s .02 .4 y .35 ]
+}
+shape hour {
+	SQUARE[x .5 s .05 .01 z -.1]
+	R_5by5 {x -.015 y .4 s .01}
+	A_5by5 {x - .005 y .4 s .01}
+	P_5by5 {x .005 y .4 s .01}
+	E_5by5 {x .015 y .4 s .01}
+}

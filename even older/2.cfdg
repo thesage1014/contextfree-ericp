@@ -1,0 +1,26 @@
+startshape start
+
+rule start {
+	go[b .5 sat 1 hue 0] 
+//	go[b .5 sat 1 hue 90] 
+//	go[b .5 sat 1 hue 180] 
+//	go[b .5 sat 1 hue 270]
+ }
+
+rule go {
+	SQUARE[ y 1 s .5 1 ]
+	go[ y 1]
+}
+rule go {
+	SQUARE[r 180 y -1  s .5 1 ]
+	go[ r 180 y -1]
+}
+rule go {
+	SQUARE[r -90 x 1  s .5 1 ]
+	go[ r -90 x 1]
+}
+rule go {
+	SQUARE[ r 90 x -1  s .5 1 ]
+	go[ r 90 x -1]
+}
+rule go .05 {}

@@ -1,0 +1,27 @@
+CF::Impure = 1
+CF::Background = [b -.07 sat .05]
+
+startshape start2(16)
+shape start2 (number loops){
+    loop 10 [s rand(1, .7) a -.5] {
+        CIRCLE[s 20 sat .5 b .7 hue -80]
+        CIRCLE[s 18 sat .05 b .93 hue -80]
+    }
+    loop loops [r (360/loops)] {
+        start[x 10]
+        start[x 10 flip 180]
+    }
+    start2(loops-4.1)[s .7 r (360/loops)]
+}
+
+shape start 
+rule {
+    CIRCLE[s .5 y .25 sat .5 b .9 hue -40 a -.5]
+    CIRCLE[s .5 y -.25 sat .5 b .6 hue -140 a -.5]
+    CIRCLE[s 1 .5 sat .5 b .7 hue -80 a -.8]
+    start[x .1 s .99 r 2]
+}
+rule .015 {
+    start[]
+    start[s .5 z -2 flip 180 h 15]
+}

@@ -1,0 +1,36 @@
+CF::MinimumSize = 2
+CF::Background = [b 1]
+CF::Impure = 1
+
+startshape A(0)[]
+shape A(number age){
+    HEX[s .5 sat max(age*.02,0)]
+	if(age < 14) {
+    		A(age + 1)[s 0.5 x 1 r 30 z 1 b .1 h 10]
+    		A(age + 1)[s 0.9 y 1 r 30 b .1 z -1]
+	} else {
+		HEX[s 1 y 10]
+	}
+}
+
+shape HEX {
+	//TRIANGLE[r 30 s 5 z -1000000000]
+	//TRIANGLE[r 30 s 4.8 z -100000000 b 1]
+	loop i=3 [r (360/3)] {
+		hexral(0)[]
+		hexral(0)[r 60 b .5 ]
+	}
+}
+
+shape hexral (number age){
+	hex[]
+	hex[s .85 b 1]
+	if(age <5) {
+		hexral(age+1)[s .8 x .055 y .865 z -1 r 60]
+	}
+}
+
+shape hex {
+	loop 3 [r (360/3)]
+	SQUARE[s .575 1]
+}

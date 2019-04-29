@@ -1,0 +1,9 @@
+//CF::Background = [b -.5]
+//CF::Size = [s 3]
+startshape grad(50)[a -.5]
+shape grad(number res) {
+	//SQUARE [sat 1 z -100 b .5]
+	r1 = 1/res
+	loop i=res []
+		SQUARE[s 1 (r1*1) b (i*r1+r1/2) y (i*r1-.5+r1/2)]
+}

@@ -1,0 +1,43 @@
+startshape starter3
+background{b -1}
+
+rule starter3 {
+	starter{}
+	starter2{a-.3}
+}
+rule starter2 {
+	start2{}
+//	start2{ s 1 1 -1 r 180}
+}
+rule start2 {
+	CIRCLE{}
+	CIRCLE{sat .5 b .2 s .2}
+	go2[s .9 hue 10 b .1 x .005 r 20]
+}
+rule go2 {
+	CIRCLE{}
+	CIRCLE{b 1 sat .5 s .2}
+	start2[s .9 hue 10 x .005 r 20]
+}
+rule go2 .1 {
+	CIRCLE{}
+	CIRCLE{b 1 sat .5 s .2}
+	starter{r 180 s .5 1}
+}
+rule starter {
+	start{}
+//	start{ s 1 1 -1 r 180}
+}
+rule start {
+	CIRCLE{sat 1 b .2}
+	go[s .9 hue 10 b .1 x .005 r 20]
+}
+rule go {
+	CIRCLE{b 1 sat 1}
+	start[s .9 hue 10 x .005 r 20]
+}
+rule go .5{
+	CIRCLE{b 1 sat 1}
+	start[s .9 hue 10 x .005 r 20]
+	starter{r 180 s .5 1}
+}

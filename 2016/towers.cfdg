@@ -1,0 +1,16 @@
+startshape start
+
+shape start {
+	TRIANGLE[ y -1]
+	TRIANGLE[ x 10 y -1  b .5]
+	TRIANGLE[ x -10 y -1 b .5]
+	loop 10 [x 9 r -10] {
+		loop i=100 [ y .5] {
+			ra = rand(20)
+			loop 500 [] {
+				loc = randint::discrete(i,i,i,i,10,ra,ra,ra,ra)
+				SQUARE[s 1 .5 x loc a -.99]
+			}
+		}
+	}
+}

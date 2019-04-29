@@ -1,0 +1,17 @@
+startshape START
+background {b .8 sat .5}
+rule START {
+	trail{}
+}
+rule trail .07 {
+	trail{r 180 hue 2 s .3 y -.35 b .2}
+	trail{}
+}
+rule trail {
+	CIRCLE{s 1.5 1 b .1 sat 1 a -.9}
+	trail{ s .995 x .05 r 4}
+}
+rule trail {
+	CIRCLE{s 1.5 1 b .1 sat 1 a - .9}
+	trail{ s .995 x .1 r -1.5}
+}

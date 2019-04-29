@@ -1,0 +1,44 @@
+startshape start4
+CF::Background = [b -.8]
+
+shape start4 {
+	loop i=20 [y .5 h 10 z -100000] {
+		start2(20 + -5*i)[]
+	}
+}
+shape start3 {
+	start2(20)[x -2 y -4]
+	start2(20)[x 2 y 4 h 180 r 180]
+} 
+shape start2(number row) {
+	//loop 10 [s .7 x 5 b .2]
+	start[]
+	start2(20)[s .7 x 5 b .25 r row]	
+}
+shape start {
+	loop 2 [r 180 x 2]
+		splot[x 1.1 r 90]
+	//start[x 1 s .5 r 90 h 100]
+}
+
+shape splot {
+	egg[r 90 a -.5]
+	rness = 50
+	splot[y .5 s .95 r rand(-rness,rness)]
+}
+
+shape egg {
+	CIRCLE[s 1.09 2.12 sat .7 b 1]
+	loop 10 [y .2 s .8 b .2 h 2] {
+		off[s .1 sat .8 b .1]
+	}
+	loop 10 [y -.2 s .8 b .2 h -2] {
+		off[s .1 r 180 sat .8 b .1]
+	}
+}
+
+shape off {
+	transform[s 4]
+	SQUARE[s .8 1 r 45]
+	off[x 2 y 1 r 10 s .7 .9]
+}

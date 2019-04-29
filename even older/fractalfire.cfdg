@@ -1,0 +1,55 @@
+startshape CLOUD
+
+background {b -1}
+
+rule CLOUD{
+
+CLOUDER{ a -1 sat 1 hue -90 }
+
+CLOUDER{ a -1 sat 1 }
+
+CLOUDER{ a -1 sat 1 hue 90 }
+
+}
+
+rule CLOUDER{
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ x 1 r 50 s .8 a .025 sat .01 hue 3}
+
+}rule CLOUDER{
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ x 1 r -50 s .8 a .025 sat .01 hue 3}
+
+}rule CLOUDER{
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ y 1 r 50 s .8  a .025 sat .01 hue 3}
+
+}rule CLOUDER{
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ y 1 r -50 s .8  a .025 sat .01 hue 3}
+
+}rule CLOUDER {
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ x 1 r -50 s .9  a .025 sat .01 hue 3}
+
+CLOUDER{ y 1 r 50 s .9  a .025 sat .01 hue 3}
+
+}rule CLOUDER{
+
+CIRCLE{s 5 b 1 a -.95 }
+
+CLOUDER{ x 1 r 50 s .9  a .025 sat .01 hue 3}
+
+CLOUDER{ y 1 r -50 s .9  a .025 sat .01 hue 3}
+
+}

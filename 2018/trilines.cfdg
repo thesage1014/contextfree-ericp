@@ -1,0 +1,43 @@
+startshape start2
+CF::Background = [b -.8 sat .1 h 10]
+shape start2 {
+	loop 1 [x 2 flip 180 h .5]
+	start[a -.5]
+}
+
+shape start
+rule {
+	//TRIANGLE[]
+	circ[s .5 y .57735]
+	circ[s .5 x-.5 y -.28868 r 120 b .1 sat .2]
+	circ[s .5 x .5 y -.28868 r -120]
+}
+shape bop
+rule {
+	CIRCLE[a -.5 b .8 sat .5]
+	bop[s .5]
+}
+rule .1 {
+	CIRCLE[s .5 .3 r rand(360) a -.5 b 1 sat .3]
+	bop[s .5]
+}
+shape line {
+	TRIANGLE[s .4 y -1.15]
+	br = randint(1000) == 0
+	SQUARE[s .1 1 y -.5 b br ]
+}
+shape circ
+rule {
+	bop[]
+}
+rule {
+	bop[]
+	line[]
+}
+rule 2 {
+	line[]
+	circ[]
+}
+rule 4{
+	start[r 60 z -1]
+}

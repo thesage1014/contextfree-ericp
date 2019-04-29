@@ -1,0 +1,11 @@
+startshape bushTrunk
+
+shape bushTrunk
+rule {
+	CIRCLE[sat .7 b .7 hue 60]
+	bushTrunk[y .1 s .999 r rand(-1,1) sat rand(-1, 1) hue rand(-1,1)]
+}
+rule .01 {
+	bushTrunk[r 10 s .8]
+	bushTrunk[r -10 s .8]
+}

@@ -1,0 +1,8 @@
+startshape cube
+
+rule cube {
+	SQUARE{ b .1 a -.2}
+	SQUARE[x -.25 y .5 z -1  s .5 .25 b .2 skew 0 45 s 1 4 y - .375 a -.2]
+	SQUARE{x .5 y .25 z -2 b .3 a -.2}
+	SQUARE[x .75 y .5 z -1  s .5 .25 b .25 skew 0 45 s 1 4 y - .375  a -.2]
+}

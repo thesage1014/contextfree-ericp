@@ -1,0 +1,7 @@
+import lib_clouds.cfdg
+CF::Background=[b -.1 sat .3 h 40]
+startshape start
+
+shape start {
+	
+}

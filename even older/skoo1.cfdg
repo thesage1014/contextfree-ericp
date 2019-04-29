@@ -1,0 +1,9 @@
+startshape start
+background{ b -. 9}
+rule start{ gear{}  }
+
+rule gear{
+	TRIANGLE{ a -.1 x -1.5 r -100 sat .25 }
+	gear {r 10 y .1 s .9992 h 103 sat .0025 b .003} 
+
+}

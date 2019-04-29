@@ -1,0 +1,19 @@
+CF::Impure = 1
+startshape start
+
+shape start {
+	loop 3 [y -1 x 3] {
+		womp = rand(.4,1)
+		loop 70 [y .05 x .1 z -1] {
+			slice(womp)[r -8  b .9 sat .2 h -170]
+			//slice(.6)[x 1 y -.5 r -8  b .9 sat .2 h -170]
+			//CIRCLE[s 1.8 x .7 y .7 z -.1  r -8  b .7 a -.9]
+		}
+	}
+}
+
+shape slice (number big) {
+	TRIANGLE[s .5 2 x .05 r -90 b 1 sat 0 z -.1]
+	TRIANGLE[s .5 2 r -90]
+	slice(big)[y .3 x -.05 r rand(-10) s rand(.85*big, 1*big) b .1 sat -.1]
+}

@@ -1,0 +1,38 @@
+CF::Impure = 1
+startshape start
+count = 7
+intzoop = .005
+intbees = 0
+dotSizeSpread	= .5
+dotSizeInit 		= 1.4
+shape start {
+//	SQUARE[s 10 .05 y -.05 x-.05]
+//	SQUARE[s .05 10 x -.05 y-.05]
+	wraith(0,intzoop)[r -90]
+	
+//	loop 3[x 20]
+//		play(0,1)[r 120]
+
+//	i = 0
+//	loop 10 [x 1.5] {
+//		red(.3 + i*3)[]
+//		i = i+1
+//	}
+}
+
+shape red(number spr) {
+	CIRCLE[a -0 x -spr .. spr y -spr .. spr s (dotSizeInit-dotSizeSpread) .. (dotSizeInit+dotSizeSpread) sat .9 b .8 .. 1.2 ]
+	red(spr)[z -.000001 y .1 .. 1 s .93 r -1] //y (0 .. spr)
+}
+shape play(number life, number bees) {
+	red(.1 + life*.3)[s .5]
+	if (life < 16)
+		play(life + .05, bees)[x 1.5 s bees r 10 hue .5]
+}
+
+shape wraith(number life, number zoop) {
+	play(0,(1-zoop)+(.0013*life))[x (life*3) s (1/(life+.5)) r 90]
+	if(life < count) {
+		wraith(life+1, zoop)[z -1]
+	}
+}

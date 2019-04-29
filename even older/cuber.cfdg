@@ -1,0 +1,75 @@
+startshape start
+background {b -.2}
+rule start{
+	cuber{ b .1 x 4.5 y 14.5 z 2 s 10 b .9 a -.5 }
+	cuber{ b .1 x 14.5 y 4.5 z 2 s 10 b .9 a -.5 }
+	cuber{ b .1 x 14.5 y 24.5 z 2 s 10 b .9 a -.5 }
+	cuber{ b .1 x 24.5 y 14.5 z 2 s 10 b .9 a -.5 }
+
+	1* {y 10} bigCube{y 10 x 10 sat .2 hue 240 }
+	2* {x 20} {
+		2* {y 20 z 10} bigCube{sat .2 hue 240  }
+
+	}
+}
+
+rule bigCube {
+	cuber{ b .1 x 4.5 y 4.5 z 2 s 10 b .9 a -.1 }
+	5 * {y 2} {
+		5 * {x 2} {
+			10 * {x .5 y .25 z -1 } er{}
+		}
+	}
+}
+
+rule er {
+	cube{ b .1 a .4 }
+//	er{ s .5 b .5 sat .8 hue 240 x -.25 y -.25}
+}
+rule er {
+	cube{x 1 b .1 a .4 }
+
+}
+rule er {
+	cube{x 1 y 1 b .1 a .4 }
+}
+rule er {
+	cube{y 1 b .1 a .4 }
+}
+
+rule er {
+	cube{ b .1 a .4 }
+	cube{x 1 b .1 a .4 }
+}
+rule er {
+	cube{ b .1 a .4 }
+	cube{x 1 y 1 b .1 a .4 }
+}
+rule er {
+	cube{ b .1 a .4 }
+	cube{y 1 b .1 a .4 }
+}
+
+
+rule cube {
+	SQUARE{ b .1 a -.2}
+	SQUARE[x -.25 y .5 z -1  s .5 .25 b .2 skew 0 45 s 1 4 y - .375 a -.2]
+	SQUARE{x .5 y .25 z -2 b .3 a -.2}
+	SQUARE[x .75 y .5 z -1  s .5 .25 b .25 skew 0 45 s 1 4 y - .375  a -.2]
+	SQUARE{b 1 s .25 .5 x -.25 y .25 skew 45 0 a -.925 }
+	TRIANGLE[ x -.415 y -.145 s .25 .5 r 180 skew 30 0  b 1 a -.925  ]
+}
+rule cuber {
+	SQUARE{ b .1 a -.2}
+	SQUARE[x -.25 y .5 z -10000  s .5 .25 b .2 skew 0 45 s 1 4 y - .375 a -.2]
+	SQUARE{x .5 y .25 z -10000 b .3 a -.2}
+	SQUARE[x .75 y .5 z -1  s .5 .25 b .25 skew 0 45 s 1 4 y - .375  a -.2]
+	SQUARE{b 1 s .25 .5 x -.25 y .25 skew 45 0 a -.75 }
+	TRIANGLE[ x -.415 y -.145 s .25 .5 r 180 skew 30 0  b 1 a -.75  ]
+}
+//rule cube  {
+//	SQUARE{ sat .5  b .5 a -.2}
+//	SQUARE[ sat .5  b .5 x -.25 y .5 z -1  s .5 .25 b .2 skew 0 45 s 1 4 y - .375 a -.2]
+//	SQUARE{ sat .5  b .5 x .5 y .25 z -2 b .3 a -.2}
+//	SQUARE[ sat .5  b .5 x .75 y .5 z -1  s .5 .25 b .25 skew 0 45 s 1 4 y - .375  a -.2]
+//}

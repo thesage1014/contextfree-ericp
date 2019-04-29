@@ -1,0 +1,29 @@
+startshape ICONS
+
+background {b -1}
+
+
+
+rule ICONS {
+
+ICON{}
+
+ICON{flip 45 hue 90}
+
+ICON{flip -45 hue 180}
+
+ICON{flip -90 hue 270}
+
+}
+
+
+
+rule ICON {
+
+CIRCLE{s 1 a -.5 sat .5 b 1}
+
+ICON[ x 1 y 1 s .5 b -.3 hue 90]
+
+ICON[ x 1 y -1 s .5 b -.3 hue 90]
+
+}

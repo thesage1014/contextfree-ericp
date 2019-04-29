@@ -1,0 +1,18 @@
+startshape blah
+CF::Background = [hue 10 sat .8 b -0.5]
+CF::MinimumSize = 0.1
+ 
+shape blah {
+ blah2 [alpha -1]
+}
+ 
+shape blah2 
+rule {
+ SQUARE [y -4]
+ blah2 [alpha 0.00008 r 8..9.5 x 1 s 0.9995]
+}
+rule .0005 {
+ SQUARE [s 10]
+ blah2[]
+ blah2[flip 180 a -1]
+}

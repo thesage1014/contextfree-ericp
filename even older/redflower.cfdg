@@ -1,0 +1,14 @@
+startshape starry
+
+rule starry {
+	CIRCLE{}
+	6 * {r 60} petal{}
+}
+rule petal {
+	CIRCLE{sat .7 b .5 a -.97}
+	petal{y .0175 s .99 r -1}
+}
+rule petal {
+	CIRCLE{sat .7 b .5 a -.97}
+	petal{y .05 s .95 r 1}
+}

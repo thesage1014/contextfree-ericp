@@ -1,0 +1,24 @@
+startshape start
+
+shape start {
+	//TRIANGLE[y -1 z 100]
+	//TRIANGLE[r 180 z 100]
+	CIRCLE[s 10 b .85 sat .8 h 49]
+	transform[x -.7  y 5.5]
+	loop i=5 [ h 3 b .1] {
+		transform[[y -5 r (5*i) s (1+-.03*i) y 5]] {
+			loop 36 [r -10 x 1]
+				box[ s 1.1 r 5 b .8 sat .8 hue 35]
+		}
+	}
+}
+
+path box {
+    MOVETO( 0.5,  (0.5+rand()))
+    LINETO(-0.5,  (0.5+rand()))
+    LINETO(-0.4,  0)
+    LINETO(-0.5, -0.5)
+    LINETO( 0.5, -0.5)
+    LINETO(0.4,  0)
+    FILL()[]      // draw a line on the path using the default line width (10%)
+}

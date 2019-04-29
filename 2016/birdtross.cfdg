@@ -1,0 +1,86 @@
+startshape start
+
+shape start {
+//	TRIANGLE[ y -1]
+//	TRIANGLE[ x 10 y -1  b .5]
+//	TRIANGLE[ x -10 y -1 b .5]
+	CIRCLE[s 2.5 4 x -5 y 5 r -20]
+	CIRCLE[s 2.5 4 x 5 y 5 r 20]
+	beak[s 16 13 y 8 z -10000]
+	bodyB[s .35 .3 x 2 y -5 z -1075 r 185]
+	bodyB[s .35 .3 x -2 y -5 z -1075 r 175 flip 90]
+
+	bodyB[s .6 .7 x 2 y -35 z -1000 r 185]
+	bodyB[s .6 .7 x -2 y -35 z -1000 r 175 flip 90]
+	wing[x 55 y 30 z 100 s 1.6 1.3 r -20]
+	wing[x -55 y 30 z 100 s 1.6 1.3  r 20 flip 90]
+	tailT[s .9 .4 x 2 y -70 z -10 r 185]
+	tailT[s .9 .4 x -2 y -70 z -10 r 175 flip 90]
+	tail[x 2 y -80 r 175]
+	tail[x -2 y -80 r 185 flip 90]
+}
+shape beak {
+	loop 10 [s .93 y .07 sat .1 b .1 h 4] {
+		TRIANGLE[s .8 sat .35 b .6]
+	}
+}
+
+shape bodyB {
+	loop k=7 [ s 1 y -7 r -2 a -.15  sat .18 b .18 h 8] {
+		loop 3 [x 7 r -7] {
+			loop i=100 [s .999 1.001 z 1] {
+				ra = rand(200)+10
+				loop j=100 [] {
+					loc = randint::discrete(i,i,i,i,15,2,ra,ra,ra,ra)
+					transform[r -loc]
+						SQUARE[s (.97+i/100) .5 x loc y (i*.5) r -loc a -.7]
+				}
+			}
+		}
+	}
+}
+
+shape wing {
+	loop 7 [ s .9 y -10 r -10 a -.05 sat .2 b .2 h 8] {
+		loop 6 [x 10 r -10 a -.1] {
+			loop i=100 [ ] {
+				ra = rand(20)
+				loop j=100 [] {
+					loc = randint::discrete(i,i,i,i,15,2,ra,ra,ra,ra)
+					transform[r -loc]
+						SQUARE[s (.97+i/100) .5 x loc y (i*.5) r -loc a -.7]
+				}
+			}
+		}
+	}
+}
+
+shape tailT {
+	loop 3 [ s 1.1 y -20 a -.15  sat .2 b .2 h 10] {
+		loop 3 [x 7 r -7] {
+			loop i=80 [s .999 1.001 z 1] {
+				ra = rand(200)+10
+				loop j=100 [] {
+					loc = randint::discrete(i,i,i,i,15,2,ra,ra,ra,ra)
+					transform[r -loc]
+						SQUARE[s (.97+i/100) .5 x loc y (i*.5) r -loc a -.7  sat .2 b .2 h 10]
+				}
+			}
+		}
+	}
+}
+
+shape tail {
+	loop 4 [ s 1.05 .9 y .5 r -2 a -.15 sat .15 b .1 h 10] {
+		loop 3 [x 10 r -10] {
+			loop i=100 [s .999 1.001 z 1] {
+				ra = rand(200)+10
+				loop j=100 [] {
+					loc = randint::discrete(i,i,i,i,15,2,ra,ra,ra,ra)
+					transform[r -loc]
+						SQUARE[s (.97+i/100) .5 x loc y (i*.5) r -loc a -.7]
+				}
+			}
+		}
+	}
+}

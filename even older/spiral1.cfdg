@@ -1,0 +1,16 @@
+CF::Background=[b -1]
+startshape start
+
+shape start {
+	loop 8 [[r 45 x 4]] sp[r 57.5]
+}
+
+shape sp
+rule {
+	CIRCLE[b 1 a -.995]
+	sp[x .05 s .999 r rand(.8, 1) ]
+}
+rule .0005 {
+	sp[r -1 sat 1]
+	sp[r 1 sat 1]
+}

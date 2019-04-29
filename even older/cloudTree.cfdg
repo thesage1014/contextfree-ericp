@@ -1,0 +1,24 @@
+import lib_clouds2.cfdg
+CF::Background=[b -.5 sat .3 h 230]
+startshape PLANT
+
+shape PLANT {
+	BL(0)[]
+}
+
+shape BL (number life) {
+	loop 5 [] {
+		cloud(1)[s 1.7 b rand(.4, .6) sat 1 h 30 z -1]
+		cloud(1)[s 1.0 b rand(.7, 1)]
+		cloud(1)[s .2 1 b rand(.7, .9) y 1 z 1]
+	}
+	WL [size 0.95 y 1.6]
+}
+
+shape WL
+rule 15 {BL(0)[r  rand(-10, 20)]}
+rule {
+	BL(0)[r  -10]
+	BL(0)[r  -10 flip 90]
+}
+

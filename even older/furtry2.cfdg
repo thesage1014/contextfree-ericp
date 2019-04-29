@@ -1,0 +1,38 @@
+CF::Background = [hue 10 sat 1 b -0.8]
+CF::Impure = 1
+startshape start
+shape start {
+	loop 6 [[r 60 h 180]] stalk(0)[y 0]
+	loop 6 [[r 60 h 180]] stalk(-10)[y 0 z 500 s .5 sat -1 r 30 ]
+	loop 12 [[r 30 h 180]] stalk(-10)[y 0 z 1000 s .3 sat -1 r 15 ]
+}
+
+shape quelf
+rule 1 {
+	//TRIANGLE[y 5 s 2 10 r 180  hue -170 b .05]
+}
+rule .5 {
+	quelf[]
+	TRIANGLE[[r 45 .. 135 x 10 s 30 2 b .1]]
+}
+rule 2 {
+	quelf[a -.3 b .1 sat .5]
+}
+
+shape stalk(number life)
+rule {
+	quelf[]
+	stalk(life +1)[y .1 .. 1.5 r -2 .. 2 s .991]
+}
+rule .1 {
+	switch(life > 10){
+		case 0:
+			stalk(life)[h 10]
+		case 1: {
+			stalk(life +1)[y 10 r -20 b .05 ]
+			if(randint(2)==0) {stalk(life +1)[y 10 r 20 b .05 a -.3]}
+			CIRCLE[s 5 y 5 z 1 b .15]
+		}
+	}
+
+}

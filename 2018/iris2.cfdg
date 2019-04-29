@@ -1,0 +1,33 @@
+startshape start
+CF::Background = [b -.8]
+CF::Size = [s 140]
+
+shape start {
+	iris[s .8]
+}
+
+shape iris {
+	loop 5 [ s 1.5 r 7 sat .1 h 175] {
+		loop 100 [r .1 h 1] 
+			blast[a -.94 sat .1]
+	}
+	loop 10 [s .98]
+		CIRCLE[s 22 z 10000 a -.75]
+}
+
+shape blast {
+	SQUARE[]
+	loop 12 [r 30]
+		circ[y .7]
+}
+
+shape circ
+rule  {
+	SQUARE[]
+	circ[s rand(.8,1.15) rand(.8,1.2) b .01 y .05]
+}
+rule 5  {
+//	CIRCLE[]
+	circ[s rand(.8,1.2) rand(.8,1.2) b .01 y .05]
+}
+rule .01 {}

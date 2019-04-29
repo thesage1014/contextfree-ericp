@@ -1,0 +1,32 @@
+CF::Background = [b -.05 sat .05 h -120]
+startshape start
+
+shape start {
+    loop i=40 [x .05 y .1 h 2 b .05]
+        blorb[x rand(-.5,.5)]
+}
+
+shape blorb 
+rule {
+    circ[ b .1]
+    blorb[x rand(-2,2) y .1 z rand(-.01,.01) s .9]
+}
+rule .1 {
+    blorb[]
+    droop[ z -.001]
+}
+
+shape droop {
+    ploop[s .5 .3 y -.5 b 1 sat .2 h 18]
+}
+shape ploop {
+    circ[ b .1]
+    ploop[x rand(-.2,.2) y rand(-1) z rand(-.01,.01) s .9]
+}
+shape circ {
+    CIRCLE[b .1 sat .1 h 240]
+    CIRCLE[x .07 y .07 s .9 .85 r -45 b .4 sat .07 h 200]
+    CIRCLE[x .30 y .30 s .1 .05 r -45 b .8 sat .07 h 200]
+    loop 10 [s 1.1 1]
+        SQUARE[s 1.1 a -.99]
+}

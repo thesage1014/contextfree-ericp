@@ -1,0 +1,116 @@
+CF::Impure = 1
+CF::Background = [b -.05 sat .05 h 110]
+CF::Frame = [s 100]
+startshape corridor
+
+shape corridor {
+    scaledown = .95
+    loop i=20 [x 1 y .5 z -10000 s scaledown b .1] {
+        curve2(0)[[y -.5 b .5 sat .4 h 80]]
+        clouds(0,0,8)[flip 90 s 10 x 70 y -15 b .5]
+    }
+    loop i=80 [x 1 y .5 z -10000 s scaledown b .1] {
+        curve2(0)[[flip 90 x -110 y -.5 b .5 sat .4 h 80]]
+        clouds(0,0,8)[s 10 x 50 y -15 b .5]
+    }
+}
+shape curlsquare{
+    transform[s .1 x -.375 y .5] {
+        loop i=4 [x 2.5 ] {
+            curve1(0)[[r (180*i+180) y -.5]]
+        }
+    }
+}
+shape curve1(number life) 
+rule {
+    SQUARE[]
+    if(life < 10) {
+        curve1(life+1)[y .5 s .99 h -.1]
+    } else {
+        curve1(0)[y .1 x .1 z -.00001 s .8 r 90 b -.1]
+    }
+}
+shape curve2(number life)
+rule {
+    curve1(0)[z 1 b .7 sat .9 h -30]
+    loop 1 [y 2.5 s .975 .99 r -5] {
+        curve1(8)[x (life + 1) s 7 5 b .1 sat .2 h -7]
+    }   
+    SQUARE[x (life + 10) y 2 s 25 15 b .2 sat .2 h -7]
+    loop 3 [x 7] {
+        curve1(5)[x (life) y 2 z 4 r 180 b .4 sat .2 h -7]
+    }
+    if(life <> 15) {
+        curve2(life+1)[y 5 z -1 r rand(-10) s .95 .98 h -.1]
+    } else {
+        curve2(0)[y 5 z -.00001 s .8 r 90]
+    }
+}
+
+/////////////////////////////////////////////// jclouds2.cfdg
+
+maxLife = 2
+lifeVariance = 7
+yd = -.2
+
+shape sky {
+	loop 4 [x 3] {
+		transform[x rand(-10, 10) y rand(-4, 4)] {
+			//CIRCLE[]
+			clouds(0,0,10)[]
+		}
+	}
+}
+shape sky2 {
+	loop 4 [x 3] {
+		transform[x rand(-10, 10) y rand(-10, 10)] {
+			//CIRCLE[]
+			clouds(0,0,10)[ s 5]
+		}
+	}
+}
+shape clouds (number life, number ro, number cloudlife) {
+	start(0)[y 1 s (1.5-(abs(life-5)/cloudlife)*2)]
+	rot = ro*.9 + rand(-1,1)
+	if(life < cloudlife)
+		clouds(life+1,rot,cloudlife)[x rand(.9, 1.5) r (ro-rot)]
+	//else if(ro < 5 && life < cloudlife*2)
+	//	clouds(life+1,rot)[x rand(.9, 1.5) r (ro-rot)]
+}
+shape curlySq(number life) {
+        SQUARE[x .56 y -.01 s .1 1 b .2]
+        if(life > 0)
+			curlySq(life-1)[s .8 x .1 r 90]
+}
+
+
+shape start(number life) 
+rule {
+	if(life < (maxLife+randint(lifeVariance))) {
+		SQUARE[b .2]
+		start(life + 1) [s .8 x ((randint(4)-2)*.2) y yd z 1]
+		SQUARE[s .9 b 1]
+	}
+}
+rule {
+	if(life < (maxLife+randint(lifeVariance))) {
+	        SQUARE[b .2]
+		start(life + 1) [s .8 x ((randint(2)-3)*.2) y yd z 1]
+		start(life + 1) [s .8 x ((randint(2)+1)*.2) y yd z 1]
+		SQUARE[s .9 b 1]
+	}
+}
+rule {
+        if(life < (maxLife+randint(lifeVariance))) {
+	        SQUARE[b .2]
+		SQUARE[s .9 b 1]
+                curlySq(randint(6) + 2)[y -.25 s .5]
+	}
+}
+rule 1.5 {
+        if(life < (maxLife+randint(lifeVariance))) {
+                start(life + 1) [s .8 x ((randint(2)-3)*.2) y yd z 1]
+                start(life + 1) [s .8 x ((randint(2)+1)*.2) y yd z 1]
+        }
+}
+

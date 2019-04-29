@@ -1,0 +1,28 @@
+startshape start
+
+shape start {
+	loop 6 [x 2] {
+		bushTrunk[a -.2]
+	}
+}
+
+shape bushTrunk
+rule {
+	tri[s 1.6 r 90 sat .7 b .4 hue 185]
+	tri[s 1.6 r -90 sat .7 b .65 hue 170]
+	bushTrunk[y 1 s .9 r rand(-10,10)]
+}
+rule .03 {
+	bushTrunk[x -.9 y -1 z -1 r 15 s .8 h -7]
+	bushTrunk[x .9  y -1 z -1 r -15 s .8 h 7]
+}
+shape tri
+rule {
+	loop 10 [s .99 1.1 y .02 a -.3 ]
+		TRIANGLE[]
+}
+rule .3 {
+	TRIANGLE[ y .5]
+	CIRCLE[s .5 1 y .3]
+	bushTrunk[s .2 y 1]
+}

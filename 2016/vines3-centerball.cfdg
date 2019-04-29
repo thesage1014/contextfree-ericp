@@ -1,0 +1,33 @@
+startshape start
+CF::Background = [b -1]
+CF::MinimumSize = 1
+CF::Frame = 1
+//CF::Size = [s 70 70]
+shape start {
+//	loop 100 [ y rand(3,3.5) h -36 r rand(20,-10)]
+	line[]
+}
+shape line {
+//	loop 10 [ x rand(3,35) h 36 ]
+		centerBall[s 6]
+}
+shape centerBall {
+	loop 6[r 60 h 95] {
+		tri[s 1 .5 sat .85 h 120]
+	}
+}
+
+triRot = 90
+
+shape tri
+rule {
+	CIRCLE[s 1 b 1 a -.8]
+	loop 10 [s .99 1.1 y .02 a -.3 ] {
+		TRIANGLE[s 1.1 1.1 b 1 a -.8]
+	}
+}
+rule .0001 {
+	loop 10 [s .99 1.1 y .02 a -.3 ]
+		TRIANGLE[s 1.1 1.1]
+	CIRCLE[s .35 1 y .6]
+} // end tri

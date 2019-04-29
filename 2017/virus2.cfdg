@@ -1,0 +1,30 @@
+startshape start
+
+shape start 
+rule {
+	spot[x .5 y 1 s .1 1 r -30]
+	//spot[s .2]
+	start[x 1 y 2 s .8 r 60]
+}
+rule .05 {
+	spot[s .2]
+	start[x 1 y 2 s .8]
+}
+rule .1 {
+	start[]
+	start[flip 90 r 90]
+}
+shape spot {
+	CIRCLE[s 1 1 b .9]
+	subspot[]
+}
+shape subspot
+rule {
+	transform[s .1 r rand(360)]
+		CIRCLE[s .5 1 x 4.8 a -.5 b .5 sat .8 b .1]
+	subspot[s .999 a -.003]
+}
+rule .04 {
+	subspot[]
+	TRIANGLE[[ r 90 r rand(360) s .03 3 y .7 sat .5 b .5]]
+}

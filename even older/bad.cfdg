@@ -1,0 +1,19 @@
+startshape ptylerfractal
+
+rule ptylerfractal {
+	faces{r 90}
+	faces{flip 90 r 90}
+	faces{}
+	faces{flip 90}
+}
+rule faces{
+	
+	cercl{s 10 a -.9999 sat 1}
+	SQUARE{s 2 sat 1}
+	faces[r 15 s .7 x 8 b .1 h 5]
+	faces[r -15 s .7 x 8 b .1 h 5]
+}
+rule cercl{
+	CIRCLE{}
+	cercl{a .001 s .95}
+}

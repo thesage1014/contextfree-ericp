@@ -1,0 +1,51 @@
+startshape facer
+
+rule facer {
+	browlerate{x -1.1 y .2 r 8} browlerate{x 1.1 y -.3 r 20 flip 90}
+	eyed{ x -2 y -2 s 2} eyed{ x 2 y -2 s 2}
+	blaugh{y -5}
+	chin{x 4.2}
+	chin{x -4.2 flip 90}
+}
+
+
+
+rule browlerate {
+	CIRCLE{}
+	25 * { r 1 x -.1 s .98 } CIRCLE{}
+	brower{ x - 1.9 y - .36 s .6}
+} rule brower { 
+	10 * {  x -.1 s .99 } CIRCLE{} 
+	browerer{ x - .98 s .89  }
+} rule browerer {
+	40 *  { r -1 x -.12 s .97 } CIRCLE{}
+}
+
+rule eyed{
+	CIRCLE{r -5 s .9 1 }
+	eyed{r -5 s .9 y -.075 z -.1 b .2 sat .5 }
+}
+rule eyed{
+	CIRCLE{r 5 s .9 1 }
+	eyed{r 5 s .9 y -.075 z -.1 b .2 sat .5 }
+}
+
+rule chin{
+	CIRCLE{s .4}
+	chin[x - .0125 y -.1 s .99 r -.22 ]
+}
+
+rule blaugh{
+	CIRCLE{s 2.3 sat .3}
+	blaugh[y -.045 z 1 s .999 .99 sat .01 b .01]
+}
+rule blaugh .001{
+	CIRCLE{s 2.3 sat .3}
+	blaugh[y -.045 z 1 s .999 .99 sat .01 b .01]
+	blaugh[x .5 s .5 3 y -.045 z 1 r 40 s .999 .99 sat .01 b .01]
+}
+rule blaugh .001{
+	CIRCLE{s 2.3 sat .3}
+	blaugh[y -.045 z 1 s .999 .99 sat .01 b .01]
+	blaugh[x -.5 s .5 3 y -.045 z 1 r -40 s .999 .99 sat .01 b .01]
+}

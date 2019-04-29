@@ -1,0 +1,44 @@
+CF::Background=[b -.15 sat .5 hue 190]
+//CF::Symmetry = [skew 30 0], [[skew 30 0 r 120]], [[skew 30 0 r 240]]
+//CF::Symmetry = CF::Dihedral, 3.5, 30
+//CF::Symmetry = CF::Cyclic, 10, 4, 4
+CF::MinimumSize=.5
+startshape start
+
+shape start {
+	loop 4 [h 6 r 3] ace[s 1 .2 b 1 sat -1] //sat .3 h 70 hue -70]
+}
+
+shape ace
+rule {
+	planet[s 1.5 2 sat -1 a -rand(.9, 1)]
+	ace[ s .3 a -(rand()+.4) ]
+	ace[x rand(1,-1) y rand(1,-1 ) s rand(.95, .97) b 1 ]
+}
+gS = 4 //gap size
+rule .2 {
+	ace[x rand(gS,-gS) y rand(gS,-gS )]
+}
+
+
+//PLANET
+shape planet
+rule {
+	CIRCLE[ b -.05 s 2 1 sat .1 h 27]
+	go[r rand(360)]
+	go[r rand(360)]
+}
+
+shape go
+rule {
+	oc[r rand(-10, 10)]
+	go[ s rand(.7, .85) x -.05 y rand(-.2,.2)]
+}
+rule .1{
+	go[]
+	go[[x .5 r rand(-50,50) x -.5]]
+}
+
+shape oc {
+	TRIANGLE[ x .35 s 2 1 sat .1 h 50 ]
+}

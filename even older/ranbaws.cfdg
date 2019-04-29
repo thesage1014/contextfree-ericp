@@ -1,0 +1,40 @@
+startshape start4
+background {b -1}
+
+rule start4 {
+	start3[hue 180]
+	start3[r 22.5 hue 180]
+}
+
+rule start3 {
+	start2[]
+	start2[r 45]
+}
+
+rule start2 {
+	start[]
+	start[r 90]
+	start[r 180]	
+	start[r -90]
+}
+rule startt {
+	start[]
+	start[r 180]
+}
+
+rule start {
+	CIRCLE{s 50 a -.999}
+	SQUARE{s 150 1 r 90 a -.95}
+	SQUARE{s 150 1 r 45 a -.95}
+	SQUARE{s 150 1 r -45 a -.95}
+	start{x .9 y .072 r .3 s .9994 b .002 sat .0002 hue 1}
+}
+rule start .0003  {
+	start{flip 180}
+	start{}
+}
+rule start .0003  {
+	start{flip 180}
+}
+rule start .0005 {}
+//rule start .001 {}

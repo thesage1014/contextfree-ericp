@@ -1,0 +1,20 @@
+CF::Impure = 1
+startshape start
+
+shape start {
+	play(0)[r 120]
+//	i = 0
+//	loop 10 [x 1.5] {
+//		red(.3 + i*3)[]
+//		i = i+1
+//	}
+}
+shape red(number spr) {
+	CIRCLE[x -spr .. spr y -spr .. spr s .7 .. 1.3 sat .9 b .8 .. 1.2 ]
+	red(spr)[z -.001 y .1 .. 1 s .93 r -1] //y (0 .. spr)
+}
+shape play(number life) {
+	red(.1 + life*.3)[s .5]
+	if (life < 16)
+		play(life + .5)[x 1.5 r 10 hue 1]
+}

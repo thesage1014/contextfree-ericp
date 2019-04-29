@@ -1,0 +1,35 @@
+startshape start
+
+
+shape start {
+	loop i=4 [x 10] {
+		line[]
+	}
+}
+
+shape node 
+rule {
+	siz = rand(.2, 1.5)
+	CIRCLE[s siz]
+	CIRCLE[s (siz*.8) b 1 z 1]
+}
+rule .2 {
+	node[]
+	node[s .7 z 1]
+}
+shape line
+rule .1 { //end
+	node[]
+}
+rule 1 {
+	node[]
+	len = rand(1,4)
+	SQUARE[s .1 len y (len/2)]
+	line[y len r (randint(4)*90)]
+}
+rule 1 {
+	SQUARE[s .1]
+	len = rand(1,4)
+	SQUARE[s .1 len y (len/2)]
+	line[y len r (randint(4)*90)]
+}

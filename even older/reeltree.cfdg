@@ -1,0 +1,84 @@
+CF::Background=[hue 52 sat .41]
+startshape tree
+import closeleaf.cfdg
+
+shape tree {
+	SQUARE[y -10 z 1 s 70 25 hue 60 b .2 sat .8 a -.7]
+	SQUARE[y 27.6 z -1 s 70 50 hue 180 b 1 sat 1 a -.7]
+//	loop 10 [x 1] bushTrunk[s .2 x - 5 y 2.5]
+	trunk[s 2 y -1]
+	roots[]
+}
+
+
+
+
+// UPPER TREE
+
+sw = 10 // split width
+sw2 = 40
+va = 2 // variance
+
+shape trunk
+rule {
+	CIRCLE[hue 20 b .7 sat .8]
+	CIRCLE[z 1 hue 20 b .1 sat .8 a -.97]
+	trunk[y .1 r (rand(-va,va)*.6) s .994]
+}
+rule .004 {
+	trunk[r rand(-sw,sw) b .1]
+	branch[r rand(-sw2,sw2) a -1 b .2 s .7]
+}
+rule .005 {
+	trunk[]
+	trunk[r rand(-sw2,sw2) b .1]
+}
+
+shape branch
+rule {
+	CIRCLE[hue 17 b .7 sat .8]
+	branch[y .1 r (rand(-va,va)*1.5) s .998 a .05]
+}
+rule .01 {
+	branch[r rand(-sw2,sw2)  s .7 h 5]
+	branch[r rand(-sw2,sw2)  s .7 h 5]
+}
+rule .01 {
+	bushTrunk[]
+}
+
+// ROOTS
+
+rsw = 10 // split width
+rsw2 = 40
+rva = 10 // variance
+
+
+shape roots {
+	loop 4 [r 20] rootTrunk[r 140]
+}
+
+shape rootTrunk
+rule {
+	CIRCLE[hue 20 b .7 sat .8]
+	rootTrunk[y .1 r (rand(-rva,rva)*.6) s .994]
+}
+rule .004 {
+	rootTrunk[r rand(-sw2,sw2) b .1]
+	rootBranch[r rand(-rsw2,rsw2) a -1 b .2 s .7]
+}
+rule .005 {
+	rootTrunk[]
+	rootTrunk[r rand(-rsw2,rsw2) b .1]
+}
+
+shape rootBranch
+rule {
+	CIRCLE[hue 17 b .7 sat .8]
+	rootBranch[y .1 r (rand(-rva,rva)*1.5) s .998 a .05]
+}
+rule .01 {
+	rootBranch[r rand(-rsw2,rsw2)  s .7 h 5]
+	rootBranch[r rand(-rsw2,rsw2)  s .7 h 5]
+}
+

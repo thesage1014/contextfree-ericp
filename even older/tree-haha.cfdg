@@ -1,0 +1,33 @@
+startshape start
+CF::Background = [hue 0 sat 0 b -0]
+CF::MinimumSize = 0.1
+CF::Impure = 1
+ 
+shape start {
+//	CIRCLE[s 11.6 b .8]
+	CIRCLE[s 11.03]
+	CIRCLE[s 11.03 z .1 a -.97]
+	CIRCLE[s 11 b 1]
+	loop i=10 [r 36]
+		if (randint(4))
+			boop(1)[y -2]
+//	CIRCLE[s 2.1 z 1]
+//	CIRCLE[s 2.08 z 1 b 1]
+	start[s .2 z 1.1]
+}
+
+shape boop(number sz)
+rule {
+	sz2 = 1/sz*.01
+	SQUARE[s sz2 1 y .5]
+	SQUARE[s 1 sz2 ]
+	SQUARE[s sz2 1 y -.5 x .5]
+	SQUARE[s sz2 1 y -.5 x -.5]
+
+	if(randint(2))
+		boop(sz*.5)[s .5 y -1.5 x .5]
+	else
+		start[s .1 y -1 x .5]
+
+	boop(sz*.5)[s .5 y -1.5 x -.5]
+}

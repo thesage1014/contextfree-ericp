@@ -1,0 +1,23 @@
+startshape START
+
+background{b -1}
+
+rule START{
+
+STARY{skew 0 30}
+
+STARY{x .5 skew 0 -30}
+
+STARY{y .5 skew 0 30 r 90}
+
+STARY{y .5 x .5 skew 0 -30 r 90 }
+
+}
+
+rule STARY {
+
+CIRCLE{ sat 1 hue 240  }
+
+STARY[r 10  x .1 s .995 b .002 hue -180.5 ]
+
+}

@@ -1,0 +1,28 @@
+//CF::Background=[b 1 sat 1]
+//CF::Time=[time 10 100]
+CF::Size=[s 20 y 3]
+startshape start
+
+shape start {
+	SQUARE[s 20 y 3 b 1 z -2]
+	loop 6 [r 60] abe[r 45]
+	loop i=10 [y -.5 r rand(-10, 10)] {
+		TRIANGLE[y -1 z -1 b .5]
+		if(i==9) {start[s .7]}
+	}
+}
+
+shape abe
+rule {
+	SQUARE[a -.9 b 0]
+	abe[s .9 r 10 x rand(.5, .9)]
+}
+rule {
+	SQUARE[a -.9 b 0]
+	abe[s .9 r -10 y rand(.5, .9)]
+}
+rule .1{
+	SQUARE[a -.9 b 0]
+	abe[s .9 x rand(.5, .9)]
+	abe[s .9 y rand(.5, .9)]
+}

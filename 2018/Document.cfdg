@@ -1,0 +1,29 @@
+startshape tuft
+CF::Impure = 1
+
+shape tuft{
+	loop 4 [s -1 1 y 3]
+	bbranch(5)[x -3 r 190 ]
+}
+shape bbranch(number life) {
+	CIRCLE[s .2 2 y .5  b .6 sat .95 h 65]
+	if(life > 0) {
+		if(rand(3) < 1)
+			quill((5-life)*15)[s .8 1.2 x .6 r rand(35,75)]
+		if(rand(3) < 1)
+			quill((5-life)*15)[s .8 1.2 x -.6 r rand(-35,-75) b .3 sat .2]
+	}
+	if(life > -6)
+		bbranch(life -1)[y 1 r rand(-5,5) s .9 1.01]
+}
+shape quill(number life) {
+	CIRCLE[s 1 1.2 y .1 b .7 sat .75 h 90]
+	if(life < 1)
+		quilltip[s 1 1.1]
+	else
+		quill(life-1)[y -.07 s .98 r rand(-1,1)]
+}
+shape quilltip {
+	CIRCLE[s 1 1.2 y .1 b .7 sat .75 h 90]
+	quilltip[y -.07 s .95 r rand(-3,3)]
+}

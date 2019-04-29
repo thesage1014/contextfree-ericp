@@ -1,0 +1,24 @@
+CF::Impure = 1
+CF::Background = [b -.07 sat .05]
+CF::MinimumSize = 1
+
+startshape start2(3)
+shape start2 (number loops){
+    loop loops [r (360/loops)] {
+        start[y 1.5 x -3]
+        start3[r 180 y 1.5 x -3]
+    }
+    //start2(loops-4.1)[s .7 r (360/loops)]
+}
+
+shape start
+rule {
+    //CIRCLE[s .5 y .25 sat .5 b .9 hue -40 a -.5]
+    //CIRCLE[s .5 y -.25 sat .5 b .6 hue -140 a -.5]
+    CIRCLE[s 4 1 sat 1.5 b .7 hue 80 ]
+    start[x 1 s .95 r 10 h 2]
+}
+shape start3 {
+    CIRCLE[s 4 1 sat 1.5 b .7 hue 80]
+    start3[x 1 s .92 r 4 h 4]
+}

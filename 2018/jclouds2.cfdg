@@ -1,0 +1,69 @@
+CF::Impure = 1
+CF::Background = [b -.6]
+startshape sky
+
+maxLife = 2
+lifeVariance = 4
+yd = -.2
+
+shape sky {
+	loop 4 [x 3] {
+		transform[x rand(-10, 10) y rand(-4, 4)] {
+			//CIRCLE[]
+			clouds(0,0,10)[]
+		}
+	}
+}
+shape sky2 {
+	loop 4 [x 3] {
+		transform[x rand(-10, 10) y rand(-10, 10)] {
+			//CIRCLE[]
+			clouds(0,0,10)[ s 5]
+		}
+	}
+}
+shape clouds (number life, number ro, number cloudlife) {
+	start(0)[y 1 s (1.5-(abs(life-5)/cloudlife)*2)]
+	rot = ro*.9 + rand(-5,5)
+	if(life < cloudlife)
+		clouds(life+1,rot,cloudlife)[x rand(.9, 1.5) r (ro-rot)]
+	//else if(ro < 5 && life < cloudlife*2)
+	//	clouds(life+1,rot)[x rand(.9, 1.5) r (ro-rot)]
+}
+shape curlySq(number life) {
+        SQUARE[x .56 y -.01 s .1 1 b .2]
+        if(life > 0)
+			curlySq(life-1)[s .8 x .1 r 90]
+}
+
+
+shape start(number life) 
+rule {
+	if(life < (maxLife+randint(lifeVariance))) {
+		SQUARE[b .2]
+		start(life + 1) [s .8 x ((randint(4)-2)*.2) y yd z 1]
+		SQUARE[s .9 b 1]
+	}
+}
+rule {
+	if(life < (maxLife+randint(lifeVariance))) {
+	        SQUARE[b .2]
+		start(life + 1) [s .8 x ((randint(2)-3)*.2) y yd z 1]
+		start(life + 1) [s .8 x ((randint(2)+1)*.2) y yd z 1]
+		SQUARE[s .9 b 1]
+	}
+}
+rule {
+        if(life < (maxLife+randint(lifeVariance))) {
+	        SQUARE[b .2]
+		SQUARE[s .9 b 1]
+                curlySq(randint(6) + 2)[y -.25 s .5]
+	}
+}
+rule 1.5 {
+        if(life < (maxLife+randint(lifeVariance))) {
+                start(life + 1) [s .8 x ((randint(2)-3)*.2) y yd z 1]
+                start(life + 1) [s .8 x ((randint(2)+1)*.2) y yd z 1]
+        }
+}
+
